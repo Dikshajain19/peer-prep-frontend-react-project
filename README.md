@@ -18,13 +18,7 @@
 - Tailwind CSS
 - React Router
 
-## 🔗 Live Preview
-[View Project on Netlify](https://your-project-link.netlify.app)
 
-## 📸 Screenshot
-![Screenshot](./screenshot.png)
-
-## 📌 Installation
 
 ```bash
 git clone https://github.com/Dikshajain19/peer-prep-frontend-react-project.git
