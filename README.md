@@ -1,12 +1,33 @@
-# React + Vite
+# PeerPrep Frontend (React + Tailwind)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 A fully responsive frontend-only project for practicing DSA questions, categorized by topics (like Arrays, Linked List, Graphs, etc.).
 
-Currently, two official plugins are available:
+## ✨ Features
+- Topic-wise categorized coding questions
+- Clean and modern UI using TailwindCSS
+- Easy to navigate and beginner-friendly
+- No backend required
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📂 Pages Included
+- Home Page
+- Arrays, Linked List, Trees, Graphs, etc.
+- Each page lists commonly asked DSA questions
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
+- React.js
+- Tailwind CSS
+- React Router
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔗 Live Preview
+[View Project on Netlify](https://your-project-link.netlify.app)
+
+## 📸 Screenshot
+![Screenshot](./screenshot.png)
+
+## 📌 Installation
+
+```bash
+git clone https://github.com/Dikshajain19/peer-prep-frontend-react-project.git
+cd peer-prep-frontend-react-project
+npm install
+npm start
