@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useStore from "../store/useStore"; 
 
 const dummyPeers = [
   { name: "Aman", topic: "Arrays" },
@@ -12,12 +14,27 @@ export default function MatchPeers() {
   const [name, setName] = useState("");
   const [topic, setTopic] = useState("Arrays");
   const [match, setMatch] = useState(null);
+  const navigate = useNavigate();
+  const setMode = useStore((state) => state.setMode); 
 
   const handleMatch = () => {
     const possibleMatches = dummyPeers.filter((peer) => peer.topic === topic);
     const randomMatch =
       possibleMatches[Math.floor(Math.random() * possibleMatches.length)];
     setMatch(randomMatch);
+
+    setMode("match"); // ✅ Set the mode to 'match'
+
+    const routeMap = {
+      Arrays: "arrays",
+      Graphs: "graphs",
+      Trees: "trees",
+      LinkedList: "linkedlists",
+    };
+
+    setTimeout(() => {
+      navigate(`/practice/${routeMap[topic]}`);
+    }, 1500);
   };
 
   return (
@@ -42,7 +59,7 @@ export default function MatchPeers() {
       </select>
       <button
         onClick={handleMatch}
-        className="bg-purple-600  px-4 py-2 rounded hover:bg-purple-700 text-white"
+        className="bg-purple-600 px-4 py-2 rounded hover:bg-purple-700 text-white"
       >
         Match Me
       </button>

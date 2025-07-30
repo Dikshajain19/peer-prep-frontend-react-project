@@ -1,4 +1,3 @@
-// src/assets/mockPeers.js
 export const mockPeerScores = {
   Arrays: {
     name: "Samriddhi",

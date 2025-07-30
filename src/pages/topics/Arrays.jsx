@@ -48,7 +48,7 @@ const Arrays = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4 text-blue-500">Array MCQs</h2>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500">LinkedList MCQs</h2>
 
       {questions.map((q, i) => (
         <div key={i} className="mb-6">
