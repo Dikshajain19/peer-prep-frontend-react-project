@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-
+import useStore from '../../store/useStore';
 const questions = [
   {
     question: 'Which algorithm is used to find the shortest path in a weighted graph?',
@@ -26,6 +26,7 @@ const questions = [
 
 
 const Graphs = () => {
+  const mode = useStore((state) => state.mode); // ✅ CORRECT usage
   const [userAnswers, setUserAnswers] = useState(Array(questions.length).fill(''));
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
@@ -42,15 +43,19 @@ const Graphs = () => {
     questions.forEach((q, i) => {
       if (q.answer === userAnswers[i]) s += 1;
     });
-    const fakePeerScore = Math.floor(Math.random() * (questions.length + 1));
     setScore(s);
-    setPeerScore(fakePeerScore);
+
+    if (mode === 'match') {
+      const fakePeerScore = Math.floor(Math.random() * (questions.length + 1));
+      setPeerScore(fakePeerScore);
+    }
+
     setSubmitted(true);
   };
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4 text-blue-500">LinkedList MCQs</h2>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500">Trees MCQs</h2>
 
       {questions.map((q, i) => (
         <div key={i} className="mb-6">
@@ -81,10 +86,14 @@ const Graphs = () => {
       ) : (
         <div className="mt-6 text-black">
           <p>Your Score: <span className="font-bold">{score}/{questions.length}</span></p>
-          <p>Peer Score: <span className="font-bold">{peerScore}/{questions.length}</span></p>
-          <p className="mt-2 font-bold text-green-600">
-            {score > peerScore ? 'You Win 🎉' : score < peerScore ? 'Peer Wins 🧠' : 'It\'s a Tie 🤝'}
-          </p>
+          {mode === 'match' && (
+            <>
+              <p>Peer Score: <span className="font-bold">{peerScore}/{questions.length}</span></p>
+              <p className="mt-2 font-bold text-green-600">
+                {score > peerScore ? 'You Win 🎉' : score < peerScore ? 'Peer Wins 🧠' : 'It\'s a Tie 🤝'}
+              </p>
+            </>
+          )}
         </div>
       )}
     </div>
